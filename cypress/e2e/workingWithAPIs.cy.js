@@ -44,7 +44,8 @@ it("waiting for apis", () => {
     cy.get('input[name="password"]').type("password");
     cy.get('button[type="submit"]').click();
 
-    //this will wait until the API call is made and response is received, then it will continue with the next steps
+    //this will wait until the API call is made and response is 
+    // received, then it will continue with the next steps
     cy.wait("@getArticlesCall");
 
     cy.get('app-article-list').invoke('text').then(allArticleTexts => {
@@ -61,7 +62,8 @@ it("waiting for apis 2", () => {
     cy.get('input[name="password"]').type("password");
     cy.get('button[type="submit"]').click();
 
-    //this will wait until the API call is made and Test Article is received, then it will continue with the next steps
+    //this will wait until the API call is made and Test Article is
+    //  received, then it will continue with the next steps
     cy.wait("@getArticlesCall").then( apiArticleObject => {
         console.log(apiArticleObject)
         expect(apiArticleObject.response.body.articles[0].title).to.contain("Test Article");
